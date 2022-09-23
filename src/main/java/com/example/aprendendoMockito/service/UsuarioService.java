@@ -15,8 +15,15 @@ public class UsuarioService {
     private IUsuarioRepository iUsuarioRepository;
 
     public UsuarioModel cadastrarUsuario(UsuarioModel usuarioModel) {
-        return iUsuarioRepository.save(usuarioModel);
-    }
+       if(iUsuarioRepository.existsById(usuarioModel.getId())) {
+           throw new RuntimeException("Erro, usuário já cadastrado");
+       } else{
+               iUsuarioRepository.save(usuarioModel);
+               return usuarioModel;
+
+           }
+       }
+
     public List<UsuarioModel> exibirTodosUsuarios(){
         return iUsuarioRepository.findAll();
     }

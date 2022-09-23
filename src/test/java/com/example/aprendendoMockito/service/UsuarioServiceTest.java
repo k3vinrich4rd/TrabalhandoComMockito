@@ -16,6 +16,8 @@ public class UsuarioServiceTest {
         UsuarioService mockUsuario = Mockito.mock(UsuarioService.class);
         List<UsuarioModel> todosUsuarios = mockUsuario.exibirTodosUsuarios();
         Assertions.assertTrue(todosUsuarios.isEmpty());
-
     }
 }
+
+
+
